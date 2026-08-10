@@ -9,17 +9,20 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
 
 :root {
-  --ink: #1b1b18;
-  --paper: #efe9de;
-  --paper-dim: #e2dbc9;
-  --paper-line: #d3c9b2;
-  --code: #3e5c76;
-  --verse: #8b3a3a;
-  --gold: #c8862f;
-  --sage: #4f7a5c;
-  --coral: #c76b4a;
-  --plum: #7c5a96;
-  --muted: #7a7364;
+  --ink: #f3ede0;
+  --text-soft: #cbc2ae;
+  --paper: #131019;
+  --paper-dim: #1a1624;
+  --paper-line: rgba(255, 255, 255, 0.12);
+  --panel: #1e1a29;
+  --panel-2: #262032;
+  --code: #7fb1e8;
+  --verse: #e5897d;
+  --gold: #eabb6c;
+  --sage: #8fd3a4;
+  --coral: #f39a72;
+  --plum: #c79cf0;
+  --muted: #9d9686;
   --white: #faf8f4;
 
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -50,11 +53,11 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 12% 8%, rgba(200, 134, 47, 0.14), transparent 38%),
-    radial-gradient(circle at 88% 15%, rgba(79, 122, 92, 0.13), transparent 40%),
-    radial-gradient(circle at 78% 82%, rgba(139, 58, 58, 0.10), transparent 38%),
-    radial-gradient(circle at 8% 88%, rgba(62, 92, 118, 0.13), transparent 38%),
-    radial-gradient(circle at 50% 45%, rgba(124, 90, 150, 0.06), transparent 55%),
+    radial-gradient(circle at 12% 8%, rgba(234, 187, 108, 0.16), transparent 40%),
+    radial-gradient(circle at 88% 12%, rgba(143, 211, 164, 0.14), transparent 42%),
+    radial-gradient(circle at 80% 85%, rgba(229, 137, 125, 0.15), transparent 40%),
+    radial-gradient(circle at 6% 88%, rgba(127, 177, 232, 0.15), transparent 40%),
+    radial-gradient(circle at 50% 45%, rgba(199, 156, 240, 0.10), transparent 55%),
     var(--paper);
   background-attachment: fixed;
   color: var(--ink);
@@ -85,8 +88,8 @@ button:focus-visible {
 .site-nav {
   position: sticky;
   top: 0;
-  background: rgba(239, 233, 222, 0.94);
-  backdrop-filter: blur(6px);
+  background: rgba(19, 16, 25, 0.86);
+  backdrop-filter: blur(8px);
   z-index: 10;
   border-bottom: 1px solid var(--paper-line);
 }
@@ -273,7 +276,7 @@ button:focus-visible {
 .hero p.bio {
   max-width: 58ch;
   font-size: 1.1rem;
-  color: #35322c;
+  color: var(--ink);
   margin: 0 0 0.6rem;
 }
 
@@ -302,19 +305,21 @@ button:focus-visible {
 }
 
 .btn.primary {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #1c1620;
+  font-weight: 600;
 }
 
 .btn.primary:hover {
-  background: var(--coral);
-  border-color: var(--coral);
+  background: var(--gold);
+  border-color: var(--gold);
 }
 
 .btn.ghost:hover {
   background: var(--sage);
   border-color: var(--sage);
-  color: var(--white);
+  color: #1c1620;
 }
 
 /* ---------- signature divider: code dashes fading into an ink stroke ---------- */
@@ -388,8 +393,9 @@ button:focus-visible {
 }
 
 .card.code {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--panel);
+  border: 1px solid rgba(127, 177, 232, 0.35);
+  box-shadow: 0 0 24px rgba(127, 177, 232, 0.08);
 }
 
 .card.code .tag {
@@ -397,7 +403,7 @@ button:focus-visible {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9fb4c8;
+  color: var(--code);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -409,12 +415,13 @@ button:focus-visible {
 }
 
 .card.code p {
-  color: #cfc9bb;
+  color: var(--text-soft);
 }
 
 .card.verse {
-  background: var(--white);
-  border: 1px solid var(--paper-line);
+  background: var(--panel);
+  border: 1px solid rgba(229, 137, 125, 0.35);
+  box-shadow: 0 0 24px rgba(229, 137, 125, 0.08);
 }
 
 .card.verse .tag {
@@ -430,10 +437,11 @@ button:focus-visible {
 .card.verse h3 {
   font-style: italic;
   font-weight: 500;
+  color: var(--white);
 }
 
 .card.verse p {
-  color: #4a4638;
+  color: var(--text-soft);
 }
 
 /* ---------- entrance fade (CSS-only, no JS dependency) ---------- */
@@ -494,7 +502,7 @@ button:focus-visible {
   border: 1px solid var(--paper-line);
   border-top: 4px solid var(--code);
   border-radius: 3px;
-  background: var(--white);
+  background: var(--panel);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -539,7 +547,7 @@ button:focus-visible {
 .highlight-card p {
   margin: 0 0 1rem;
   font-size: 0.96rem;
-  color: #4a4638;
+  color: var(--text-soft);
 }
 
 .highlight-card .link {
@@ -596,7 +604,7 @@ button:focus-visible {
 .expertise-item p {
   margin: 0;
   font-size: 0.95rem;
-  color: #4a4638;
+  color: var(--text-soft);
 }
 
 /* ---------- now page: story intro + personal facts ---------- */
@@ -615,7 +623,7 @@ button:focus-visible {
   font-style: italic;
   font-size: 1.35rem;
   line-height: 1.55;
-  color: #2a271f;
+  color: var(--ink);
 }
 
 .story-intro .fine-print {
@@ -672,10 +680,10 @@ button:focus-visible {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   border: 1px solid var(--paper-line);
-  background: var(--white);
+  background: var(--panel);
   border-radius: 999px;
   padding: 0.35rem 0.8rem;
-  color: #3f3c34;
+  color: var(--text-soft);
 }
 
 .tag-chip .level {
@@ -695,25 +703,25 @@ button:focus-visible {
 .tag-chip.chip-gold {
   background: rgba(200, 134, 47, 0.14);
   border-color: var(--gold);
-  color: #7a5320;
+  color: var(--gold);
 }
 
 .tag-chip.chip-sage {
   background: rgba(79, 122, 92, 0.14);
   border-color: var(--sage);
-  color: #33513c;
+  color: var(--sage);
 }
 
 .tag-chip.chip-coral {
   background: rgba(199, 107, 74, 0.15);
   border-color: var(--coral);
-  color: #8a4227;
+  color: var(--coral);
 }
 
 .tag-chip.chip-plum {
   background: rgba(124, 90, 150, 0.14);
   border-color: var(--plum);
-  color: #533b66;
+  color: var(--plum);
 }
 
 .tag-chip.chip-code {
@@ -736,7 +744,7 @@ button:focus-visible {
 .fact-block p.plain {
   margin: 0;
   font-size: 0.95rem;
-  color: #4a4638;
+  color: var(--text-soft);
 }
 
 .fact-block .book-title {
@@ -757,7 +765,7 @@ button:focus-visible {
   gap: 1.75rem;
   border: 1px solid var(--paper-line);
   border-radius: 4px;
-  background: var(--white);
+  background: var(--panel);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -792,7 +800,7 @@ button:focus-visible {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7a5320;
+  color: var(--gold);
   background: rgba(200, 134, 47, 0.16);
   border: 1px solid var(--gold);
   border-radius: 999px;
@@ -816,7 +824,7 @@ button:focus-visible {
 .project-card p.desc {
   margin: 0 0 0.9rem;
   font-size: 0.95rem;
-  color: #4a4638;
+  color: var(--text-soft);
 }
 
 .project-card .meta {
@@ -850,7 +858,7 @@ button:focus-visible {
   border-radius: 4px;
   padding: 2.5rem 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .placeholder-card .tag {
@@ -922,7 +930,7 @@ button:focus-visible {
 
 .skill-group p {
   margin: 0;
-  color: #3f3c34;
+  color: var(--text-soft);
   font-size: 0.95rem;
 }
 
@@ -967,7 +975,7 @@ button:focus-visible {
 
 .page-header p {
   max-width: 60ch;
-  color: #3f3c34;
+  color: var(--text-soft);
   margin: 0;
 }
 
@@ -1022,7 +1030,7 @@ button:focus-visible {
 
 .role li {
   margin-bottom: 0.5rem;
-  color: #3f3c34;
+  color: var(--text-soft);
 }
 
 .role li::marker {
@@ -1102,7 +1110,7 @@ button:focus-visible {
 
 .contact-main > p {
   max-width: 55ch;
-  color: #3f3c34;
+  color: var(--text-soft);
   margin: 0 0 2.5rem;
 }
 
@@ -1119,7 +1127,7 @@ button:focus-visible {
 .contact-list li {
   border: 1px solid var(--paper-line);
   border-radius: 3px;
-  background: var(--white);
+  background: var(--panel);
 }
 
 .contact-list a {
