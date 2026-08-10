@@ -424,23 +424,26 @@ button:focus-visible {
   color: #4a4638;
 }
 
-/* ---------- scroll reveal (pizazz, respects reduced motion) ---------- */
+/* ---------- entrance fade (CSS-only, no JS dependency) ---------- */
 
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal {
+  animation: fadeUp 0.7s ease both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
-    opacity: 1;
-    transform: none;
+    animation: none;
   }
 }
 
