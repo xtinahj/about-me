@@ -15,6 +15,10 @@
   --paper-line: #d3c9b2;
   --code: #3e5c76;
   --verse: #8b3a3a;
+  --gold: #c8862f;
+  --sage: #4f7a5c;
+  --coral: #c76b4a;
+  --plum: #7c5a96;
   --muted: #7a7364;
   --white: #faf8f4;
 
@@ -45,7 +49,14 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(200, 134, 47, 0.14), transparent 38%),
+    radial-gradient(circle at 88% 15%, rgba(79, 122, 92, 0.13), transparent 40%),
+    radial-gradient(circle at 78% 82%, rgba(139, 58, 58, 0.10), transparent 38%),
+    radial-gradient(circle at 8% 88%, rgba(62, 92, 118, 0.13), transparent 38%),
+    radial-gradient(circle at 50% 45%, rgba(124, 90, 150, 0.06), transparent 55%),
+    var(--paper);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-serif);
   font-size: 1.05rem;
@@ -178,7 +189,7 @@ button:focus-visible {
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--verse);
+  box-shadow: 5px 5px 0 var(--coral), 9px 9px 0 var(--gold);
 }
 
 .hero .headshot img {
@@ -296,12 +307,13 @@ button:focus-visible {
 }
 
 .btn.primary:hover {
-  background: var(--code);
-  border-color: var(--code);
+  background: var(--coral);
+  border-color: var(--coral);
 }
 
 .btn.ghost:hover {
-  background: var(--ink);
+  background: var(--sage);
+  border-color: var(--sage);
   color: var(--white);
 }
 
@@ -315,20 +327,20 @@ button:focus-visible {
 
 .divider hr {
   border: none;
-  height: 2px;
+  height: 3px;
   margin: 0 0 3rem;
   background: linear-gradient(
     to right,
     transparent 0%,
-    var(--code) 8%,
-    var(--code) 46%,
-    transparent 46%,
-    transparent 50%,
-    var(--verse) 54%,
-    var(--verse) 92%,
+    var(--code) 6%,
+    var(--sage) 30%,
+    var(--gold) 50%,
+    var(--coral) 70%,
+    var(--verse) 94%,
     transparent 100%
   );
-  opacity: 0.55;
+  opacity: 0.6;
+  border-radius: 2px;
 }
 
 /* ---------- now section: two cards, two textures ---------- */
@@ -480,15 +492,43 @@ button:focus-visible {
 .highlight-card {
   padding: 1.6rem;
   border: 1px solid var(--paper-line);
+  border-top: 4px solid var(--code);
   border-radius: 3px;
   background: var(--white);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.highlight-card:nth-child(2) {
+  border-top-color: var(--verse);
+}
+
+.highlight-card:nth-child(3) {
+  border-top-color: var(--sage);
+}
+
+.highlight-card:nth-child(4) {
+  border-top-color: var(--gold);
 }
 
 .highlight-card:hover {
   transform: translateY(-3px);
   border-color: var(--code);
   box-shadow: 4px 4px 0 var(--code);
+}
+
+.highlight-card:nth-child(2):hover {
+  border-color: var(--verse);
+  box-shadow: 4px 4px 0 var(--verse);
+}
+
+.highlight-card:nth-child(3):hover {
+  border-color: var(--sage);
+  box-shadow: 4px 4px 0 var(--sage);
+}
+
+.highlight-card:nth-child(4):hover {
+  border-color: var(--gold);
+  box-shadow: 4px 4px 0 var(--gold);
 }
 
 .highlight-card h3 {
@@ -547,6 +587,11 @@ button:focus-visible {
   font-family: var(--font-serif);
   font-style: italic;
 }
+
+.expertise-item:nth-child(1) .mark { color: var(--gold); }
+.expertise-item:nth-child(2) .mark { color: var(--sage); }
+.expertise-item:nth-child(3) .mark { color: var(--code); }
+.expertise-item:nth-child(4) .mark { color: var(--verse); }
 
 .expertise-item p {
   margin: 0;
@@ -647,6 +692,47 @@ button:focus-visible {
   color: var(--code);
 }
 
+.tag-chip.chip-gold {
+  background: rgba(200, 134, 47, 0.14);
+  border-color: var(--gold);
+  color: #7a5320;
+}
+
+.tag-chip.chip-sage {
+  background: rgba(79, 122, 92, 0.14);
+  border-color: var(--sage);
+  color: #33513c;
+}
+
+.tag-chip.chip-coral {
+  background: rgba(199, 107, 74, 0.15);
+  border-color: var(--coral);
+  color: #8a4227;
+}
+
+.tag-chip.chip-plum {
+  background: rgba(124, 90, 150, 0.14);
+  border-color: var(--plum);
+  color: #533b66;
+}
+
+.tag-chip.chip-code {
+  background: rgba(62, 92, 118, 0.14);
+  border-color: var(--code);
+  color: var(--code);
+}
+
+.tag-chip.chip-verse {
+  background: rgba(139, 58, 58, 0.12);
+  border-color: var(--verse);
+  color: var(--verse);
+}
+
+.fact-emoji {
+  font-size: 1rem;
+  margin-right: 0.35rem;
+}
+
 .fact-block p.plain {
   margin: 0;
   font-size: 0.95rem;
@@ -706,8 +792,9 @@ button:focus-visible {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--verse);
-  border: 1px solid var(--verse);
+  color: #7a5320;
+  background: rgba(200, 134, 47, 0.16);
+  border: 1px solid var(--gold);
   border-radius: 999px;
   padding: 0.2rem 0.6rem;
   margin-bottom: 0.7rem;
@@ -827,6 +914,11 @@ button:focus-visible {
   margin: 0 0 0.5rem;
   font-weight: 600;
 }
+
+.skill-group:nth-child(1) h4 { color: var(--gold); }
+.skill-group:nth-child(2) h4 { color: var(--sage); }
+.skill-group:nth-child(3) h4 { color: var(--code); }
+.skill-group:nth-child(4) h4 { color: var(--verse); }
 
 .skill-group p {
   margin: 0;
